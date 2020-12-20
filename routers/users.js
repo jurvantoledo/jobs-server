@@ -6,7 +6,7 @@ const router = new Router()
 
 router.get("/", async(req, res, next) => {
     try {
-        const users = await User.findAndCountAll({
+        const users = await User.findAll({
             include: [Weapons],
             order: [[Weapons, "createdAt", "DESC"]]
         })
