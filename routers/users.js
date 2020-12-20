@@ -36,5 +36,5 @@ router.get("/:id", async (req, res) => {
   
     res.status(200).send({ message: "ok", user });
   });
-  
+
 module.exports = router;
