@@ -37,4 +37,31 @@ router.get("/:id", async (req, res) => {
     res.status(200).send({ message: "ok", user });
   });
 
+  router.post("/:id", async (req, res, next) => {
+    try {
+    const weapon = await User.findByPk(req.params.id);
+    console.log(weapon);
+  
+    const { name, type, rarity } = req.body;
+    if 
+    (!name || !type || !rarity) 
+    {
+      return res.status(400).send(
+        "Please make sure everything is filled in right."
+        );
+    }
+  
+      const newWeapon = await Weapons.create({
+        name,
+        type,
+        rarity,
+        userId: weapon.id,
+      });
+      
+      res.status(201).send({ message: "Weapon added", ...newWeapon.dataValues });
+    } catch (error) {
+        next(error)
+      }
+  });
+
 module.exports = router;

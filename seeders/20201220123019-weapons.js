@@ -7,14 +7,16 @@ module.exports = {
       [
         {
           name: "Emerald",
-          image: "https://i.redd.it/k84ivjb32vq21.jpg",
+          type: "Sniper Rifle",
+          rarity: "purple",
           userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           name: "World Burn",
-          image: "https://static.wikia.nocookie.net/borderlands/images/1/1f/World_burn.jpg/revision/latest?cb=20190612154749",
+          type: "Bazooka",
+          rarity: "green",
           userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
