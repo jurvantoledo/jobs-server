@@ -18,6 +18,7 @@ module.exports = {
       },
       rarity: {
         type: Sequelize.STRING,
+        defaultValue: "#ffffff",
         allowNull: false,
       },
       createdAt: {

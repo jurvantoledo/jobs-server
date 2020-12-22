@@ -16,7 +16,11 @@ module.exports = (sequelize, DataTypes) => {
   weapon.init({
     name: { type: DataTypes.STRING, allowNull: false },
     type: { type: DataTypes.STRING, allowNull: false },
-    rarity: { type: DataTypes.STRING, allowNull: false },
+    rarity: { type: 
+      DataTypes.STRING, 
+      defaultValue: "#ffffff",    
+      allowNull: false 
+    },
   }, {
     sequelize,
     modelName: 'weapon',
