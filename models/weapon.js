@@ -11,13 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       weapon.belongsTo(models.user);
+      weapon.belongsTo(models.element)
     }
   };
   weapon.init({
     name: { type: DataTypes.STRING, allowNull: false },
     type: { type: DataTypes.STRING, allowNull: false },
-    rarity: { type: 
-      DataTypes.STRING, 
+    rarity: { 
+      type: DataTypes.STRING, 
       defaultValue: "#ffffff",    
       allowNull: false 
     },
