@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       weapon.belongsTo(models.user);
+      weapon.belongsToMany(models.element, {
+        through: "tag",
+        foreignKey: "weaponId",
+      });
     }
   };
   weapon.init({
