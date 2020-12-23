@@ -7,6 +7,7 @@ const router = new Router()
 router.get("/", async(req, res, next) => {
     try {
         const users = await User.findAll({
+          attributes: { exclude: ["password"] },
             include: [Weapons],
             order: [[Weapons, "createdAt", "DESC"]]
         })
