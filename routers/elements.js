@@ -23,7 +23,7 @@ router.delete("/:id", async (req, res, next) => {
       const toDelete = await Element.findByPk(weaponId)
   
       if(!toDelete) {
-        res.status(404).send("reservation not found")
+        res.status(404).send("element not found")
       }
   
       const deleted = await toDelete.destroy()

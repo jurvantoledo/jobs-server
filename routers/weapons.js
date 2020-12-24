@@ -31,7 +31,7 @@ router.get("/:id", async (req, res) => {
     });
   
     if (weapon === null) {
-      return res.status(404).send({ message: "Product not found" });
+      return res.status(404).send({ message: "Element not found" });
     }
   
     res.status(200).send({ message: "ok", weapon });
@@ -44,7 +44,7 @@ router.get("/:id", async (req, res) => {
   
     const { name } = req.body;
     if 
-    (!name) 
+    (!name || null) 
     {
       return res.status(400).send(
         "Please make sure everything is filled in right."
@@ -61,5 +61,21 @@ router.get("/:id", async (req, res) => {
         next(error)
       }
   });
+
+  router.delete("/:id", async (req, res) => {
+    try {
+      const userId = req.params.id
+      const toDelete = await Weapon.findByPk(userId)
+
+      if(!toDelete) {
+        res.status(404).send("weapon not found")
+      }
+  
+      const deleted = await toDelete.destroy()
+      res.json(deleted)
+    } catch (error) {
+      next(error)
+    }
+  })
 
 module.exports = router;
