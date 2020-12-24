@@ -2,7 +2,8 @@ const express = require("express");
 const corsMiddleWare = require("cors");
 const authRouter = require("./routers/auth");
 const userRouter = require("./routers/users");
-const weaponRouter =require("./routers/weapons")
+const weaponRouter = require("./routers/weapons")
+const elementRouter = require("./routers/elements")
 const authMiddleWare = require("./auth/middleware");
 const bodyParser = require('body-parser')
 const { PORT } = require("./config/constants");
@@ -30,6 +31,7 @@ if (process.env.DELAY) {
 app.use("/", authRouter);
 app.use("/user", userRouter)
 app.use("/weapon", weaponRouter)
+app.use("/element", elementRouter)
 
 
 // Listen for connections on specified port (default is port 4000)
