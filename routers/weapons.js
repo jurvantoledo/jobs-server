@@ -37,4 +37,29 @@ router.get("/:id", async (req, res) => {
     res.status(200).send({ message: "ok", weapon });
   });
 
+  router.post("/:id", async (req, res, next) => {
+    try {
+    const weapon = await Weapon.findByPk(req.params.id);
+    console.log(weapon);
+  
+    const { name } = req.body;
+    if 
+    (!name) 
+    {
+      return res.status(400).send(
+        "Please make sure everything is filled in right."
+        );
+    }
+  
+      const newElement = await Element.create({
+        name,
+        weaponId: weapon.id,
+      });
+      
+      res.status(201).send({ message: "Element added", ...newElement.dataValues });
+    } catch (error) {
+        next(error)
+      }
+  });
+
 module.exports = router;
