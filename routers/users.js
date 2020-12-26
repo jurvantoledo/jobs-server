@@ -27,6 +27,7 @@ router.get("/:id", async (req, res) => {
     }
   
     const user = await User.findByPk(id, {
+      attributes: { exclude: ["password"] },
       include: [Weapons],
       order: [[Weapons, "createdAt", "DESC"]]
     });
