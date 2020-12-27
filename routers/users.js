@@ -6,8 +6,12 @@ const router = new Router()
 
 router.get("/", async(req, res, next) => {
     try {
+      const limit = req.query.limit || 10;
+      const offset = req.query.offset || 0
         const users = await User.findAll({
-          attributes: { exclude: ["password"] },
+            attributes: { exclude: ["password"] },
+            limit,
+            offset,
             include: [Weapons],
             order: [[Weapons, "createdAt", "DESC"]]
         })
