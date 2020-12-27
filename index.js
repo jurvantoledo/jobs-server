@@ -6,7 +6,7 @@ const weaponRouter = require("./routers/weapons")
 const elementRouter = require("./routers/elements")
 const authMiddleWare = require("./auth/middleware");
 const bodyParser = require('body-parser')
-const { PORT } = require("./config/constants");
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
