@@ -12,14 +12,14 @@ module.exports = {
     dialect: "mysql",
   },
   production: {
-    use_env_variable: "DATABASE_URL",
+    use_env_variable: "ELEPHANT_SQL",
   },
 };
 
 const { Client } = require('pg');
 
 const client = new Client({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.ELEPHANT_SQL,
   ssl: {
     rejectUnauthorized: false
   }
