@@ -1,7 +1,7 @@
 require("dotenv").config(); // we configure dotenv
 module.exports = {
   development: {
-    url: process.env.DATABASE_URL, // and use the env vars to get the url
+    url: "postgres://heuqqxgm:aiMxnr7M9tjHrwjnpAKqPsp3NyMohhU-@suleiman.db.elephantsql.com:5432/heuqqxgm",
     dialect: "postgres",
   },
   test: {
@@ -19,7 +19,7 @@ module.exports = {
 const { Client } = require('pg');
 
 const client = new Client({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.ELEPHANT_SQL,
   ssl: {
     rejectUnauthorized: false
   }
