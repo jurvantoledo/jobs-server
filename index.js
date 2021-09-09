@@ -33,6 +33,10 @@ app.use("/user", userRouter)
 app.use("/weapon", weaponRouter)
 app.use("/element", elementRouter)
 
+app.get("*", function (req, res) {
+    res.sendFile(__dirname + "/path/to/index.html")
+})
+
 
 // Listen for connections on specified port (default is port 4000)
 app.listen(PORT, () => {
